@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "frontend-project-46",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,9 @@
   "author": "Dronov Oleg",
   "license": "ISC",
   "dependencies": {
-    "commander": "^11.0.0"
+    "commander": "^11.0.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21"
   },
   "bin": {
     "gendiff": "bin/gendiff.js"
