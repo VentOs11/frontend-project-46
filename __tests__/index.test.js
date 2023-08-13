@@ -1,24 +1,26 @@
+import url from 'url';
+import path, { dirname } from 'node:path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-import genDiff from '../src/index.js';
+import gendiff from '../src/index.js';
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-const readFixture = (fixtureName) => fs.readFileSync(getFixturePath(fixtureName)).toString();
+const file1OutputDefault = readFile('fileOutput_.txt');
+const file1OutputPlain = readFile('fileOutput_ plain.txt');
+const file1OutputJson = readFile('fileOutput_ json.txt');
+const file1 = './__fixtures__/file1.json';
+const file2 = './__fixtures__/file2.json';
+const file3 = './__fixtures__/file1.yml';
+const file4 = './__fixtures__/file2.yml';
 
-describe('Generate difference (gendiff)', () => {
-	const stylishResult = readFixture('stylishDifference.txt');
-	const plainResult = readFixture('plainDifference.txt');
-	const jsonResult = readFixture('jsonDifference.txt');
-	
-	it('should compare json files', () => {
-		expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stylish')).toEqual(stylishResult);
-		expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(plainResult);
-		expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json')).toEqual(jsonResult);
-		expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(stylishResult);
+describe('comparing  files', () => {
+	test('simple using', () => {
+		expect(gendiff(file1, file2)).toEqual(file1OutputDefault);
+		expect(gendiff(file3, file4, 'plain')).toEqual(file1OutputPlain);
+		expect(gendiff(file3, file4, 'json')).toEqual(file1OutputJson);
 	});
 });
