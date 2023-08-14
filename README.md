@@ -26,3 +26,10 @@ gendiff format/file1.json format/file2.json
 ```
 Пример:
 [![asciicast](https://asciinema.org/a/JgCb9vFE63SPKgRAL6u9XVOyk.svg)](https://asciinema.org/a/JgCb9vFE63SPKgRAL6u9XVOyk)
+
+
+Stylish:
+[![asciicast](https://asciinema.org/a/6fjOuKqX7EROKosyUM2dYHH4N)](https://asciinema.org/a/6fjOuKqX7EROKosyUM2dYHH4N)
+
+Plain:
+[![asciicast](https://asciinema.org/a/6jhCquNazn5YlctgkvmwUg25V)](https://asciinema.org/a/6jhCquNazn5YlctgkvmwUg25V)
