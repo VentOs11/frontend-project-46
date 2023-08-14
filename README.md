@@ -33,3 +33,6 @@ Stylish:
 
 Plain:
 [![asciicast](https://asciinema.org/a/6jhCquNazn5YlctgkvmwUg25V)](https://asciinema.org/a/6jhCquNazn5YlctgkvmwUg25V)
+
+JSON:
+[![asciicast](https://asciinema.org/a/F9c3jVmFXIQ9zwR1niyg1VQaW)](https://asciinema.org/a/F9c3jVmFXIQ9zwR1niyg1VQaW)
