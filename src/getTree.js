@@ -7,7 +7,7 @@ const getTree = (data1, data2) => {
     if (!Object.hasOwn(data2, key)) {
       return {
         key,
-        type: 'deleted',
+        type: 'removed',
         value: data1[key],
       };
     }
