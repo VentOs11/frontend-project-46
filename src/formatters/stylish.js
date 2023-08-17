@@ -1,7 +1,5 @@
 import _ from 'lodash';
 
-const replacer = ' ';
-
 const ident = (depth, isFull) => (isFull ? ' '.repeat(depth * 4) : ' '.repeat(depth * 4 - 2));
 
 const stringify = (data, depth) => {
@@ -12,40 +10,28 @@ const stringify = (data, depth) => {
   return `{\n${lines.join('\n')}\n${ident(depth, true)}}`;
 };
 
-const iter = (diff, depth = 1) => diff.map((node) => {
+const iter = (tree, depth) => tree.flatMap((node) => {
   switch (node.type) {
-    case 'deleted':
-      return `${ident(depth)}- ${node.key}: ${stringify(
-        node.value,
-        depth,
-      )}`;
-    case 'added':
-      return `${ident(depth)}+ ${node.key}: ${stringify(
-        node.value,
-        depth,
-      )}`;
-    case 'changed': {
-      return `${ident(depth)}- ${node.key}: ${stringify(
-        node.value1,
-        depth,
-      )}\n${ident(depth)}+ ${node.key}: ${stringify(
-        node.value2,
-        depth,
-      )}`;
+    case 'removed': {
+      return `${ident(depth, false)}- ${node.key}: ${stringify(node.value, depth)}`;
     }
-    case 'unchanged':
-      return `${ident(depth)}${node.key}: ${stringify(
-        node.value,
-        depth,
-      )}`;
+    case 'added': {
+      return `${ident(depth, false)}+ ${node.key}: ${stringify(node.value, depth)}`;
+    }
+    case 'changed': {
+      const output1 = `${ident(depth, false)}- ${node.key}: ${stringify(node.value1, depth)}`;
+      const output2 = `${ident(depth, false)}+ ${node.key}: ${stringify(node.value2, depth)}`;
+      return `${output1}\n${output2}`;
+    }
+    case 'unchanged': {
+      return `${ident(depth, true)}${node.key}: ${stringify(node.value, depth)}`;
+    }
     case 'nested': {
-      const lines = iter(node.children, depth + 1);
-      return `${ident(depth)}${node.key}: {\n${lines.join(
-        '\n',
-      )}\n${ident(depth)}}`;
+      const output = iter(node.children, depth + 1).join('\n');
+      return `${ident(depth, true)}${node.key}: {\n${output}\n${ident(depth, true)}}`;
     }
     default:
-      throw new Error(`Unknown type of node '${node.type}'.`);
+      throw new Error(`Wrong node type: ${node.type}.`);
   }
 });
 
