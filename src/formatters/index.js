@@ -11,7 +11,7 @@ const formatter = (tree, formatName) => {
       return JSON.stringify(tree);
     default:
       throw new Error(
-        `The ${formatName} format is supported.\n supported fornmats: stylish, plain, json`,
+        `The ${formatName} format is supported.\n supported formats: stylish, plain, json`,
       );
   }
 };
