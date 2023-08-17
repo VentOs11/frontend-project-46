@@ -5,10 +5,10 @@ const stringify = (value) => {
     return '[complex value]';
   }
   if (_.isString(value)) {
-    return `'${value}'`;
+    return `${value}`;
   }
   if (value === null) {
-    return `'${value}'`
+    return `${value}`
   }
   return String(value);
 };
@@ -28,7 +28,7 @@ const iter = (diff, path) => diff
         return `Property '${currentPath}' was added with value: ${stringify(
           node.value,
         )}`;
-      case 'deleted':
+      case 'removed':
         return `Property '${currentPath}' was removed`;
       case 'changed':
         return `Property '${currentPath}' was updated. From ${stringify(
