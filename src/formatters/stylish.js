@@ -2,19 +2,14 @@ import _ from 'lodash';
 
 const replacer = ' ';
 
-const ident = (depth, spacesCount = 4) => {
-  const indentSize = depth * spacesCount;
-  return replacer.repeat(indentSize - 2);
-};
+const ident = (depth, isFull) => (isFull ? ' '.repeat(depth * 4) : ' '.repeat(depth * 4 - 2));
 
 const stringify = (data, depth) => {
   if (!_.isPlainObject(data)) {
     return String(data);
   }
-  const lines = Object.entries(data).map(
-    ([key, value]) => `${ident(depth + 1)}${key}: ${stringify(value, depth + 1)}`,
-  );
-  return `{\n${lines.join('\n')}\n${ident(depth)}}`;
+  const lines = Object.entries(data).flatMap(([key, value]) => `${ident(depth + 1, true)}${key}: ${stringify(value, depth + 1)}`);
+  return `{\n${lines.join('\n')}\n${ident(depth, true)}}`;
 };
 
 const iter = (diff, depth = 1) => diff.map((node) => {
