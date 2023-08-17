@@ -29,10 +29,10 @@ gendiff format/file1.json format/file2.json
 
 
 Stylish:
-[![asciicast](https://asciinema.org/a/6fjOuKqX7EROKosyUM2dYHH4N)](https://asciinema.org/a/6fjOuKqX7EROKosyUM2dYHH4N)
+[![asciicast](https://asciinema.org/a/6fjOuKqX7EROKosyUM2dYHH4N.svg)](https://asciinema.org/a/6fjOuKqX7EROKosyUM2dYHH4N)
 
 Plain:
-[![asciicast](https://asciinema.org/a/6jhCquNazn5YlctgkvmwUg25V)](https://asciinema.org/a/6jhCquNazn5YlctgkvmwUg25V)
+[![asciicast](https://asciinema.org/a/6jhCquNazn5YlctgkvmwUg25V.svg)](https://asciinema.org/a/6jhCquNazn5YlctgkvmwUg25V)
 
 JSON:
-[![asciicast](https://asciinema.org/a/F9c3jVmFXIQ9zwR1niyg1VQaW)](https://asciinema.org/a/F9c3jVmFXIQ9zwR1niyg1VQaW)
+[![asciicast](https://asciinema.org/a/F9c3jVmFXIQ9zwR1niyg1VQaW.svg)](https://asciinema.org/a/F9c3jVmFXIQ9zwR1niyg1VQaW)

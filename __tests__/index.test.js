@@ -18,9 +18,9 @@ const file3 = './__fixtures__/file1.yml';
 const file4 = './__fixtures__/file2.yml';
 
 describe('comparing  files', () => {
-	test('simple using', () => {
-		expect(gendiff(file1, file2)).toEqual(file1OutputDefault);
-		expect(gendiff(file3, file4, 'plain')).toEqual(file1OutputPlain);
-		expect(gendiff(file3, file4, 'json')).toEqual(file1OutputJson);
-	});
+  test('simple using', () => {
+    expect(gendiff(file1, file2)).toEqual(file1OutputDefault);
+    expect(gendiff(file3, file4, 'plain')).toEqual(file1OutputPlain);
+    expect(gendiff(file3, file4, 'json')).toEqual(file1OutputJson);
+  });
 });
