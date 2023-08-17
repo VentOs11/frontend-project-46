@@ -31,7 +31,7 @@ const iter = (tree, depth) => tree.flatMap((node) => {
       return `${ident(depth, true)}${node.key}: {\n${output}\n${ident(depth, true)}}`;
     }
     default:
-      throw new Error(`Wrong node type: ${node.type}.`);
+      throw new Error(`Wrong node type.`);
   }
 });
 
