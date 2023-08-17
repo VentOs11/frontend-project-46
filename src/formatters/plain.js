@@ -7,6 +7,9 @@ const stringify = (value) => {
   if (_.isString(value)) {
     return `'${value}'`;
   }
+  if (value === null) {
+    return value
+  }
   return String(value);
 };
 
@@ -18,6 +21,7 @@ const getFullPath = (node, currentPath) => {
 };
 
 const iter = (diff, path) => diff
+  .filter((node) => node.type !== 'unchanged')
   .map((node) => {
     const currentPath = getFullPath(node, path);
     switch (node.type) {
