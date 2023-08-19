@@ -1,46 +1,38 @@
 import _ from 'lodash';
 
-const stringify = (value) => {
-  if (_.isObject(value) && value !== null) {
+const stringify = (data) => {
+  if (_.isObject(data)) {
     return '[complex value]';
   }
-  if (_.isString(value)) {
-    return `'${value}'`;
+  if (typeof data === 'string') {
+    return `'${data}'`;
   }
-  if (value === null) {
-    return value
+  if (data === null) {
+    return data;
   }
-  return String(value);
+  return String(data);
 };
 
-const getFullPath = (node, currentPath) => {
-  if (currentPath !== '') {
-    return `${currentPath}.${node.key}`;
-  }
-  return String(node.key);
-};
-
-const iter = (diff, path) => diff
-  .filter((node) => node.type !== 'unchanged')
-  .map((node) => {
-    const currentPath = getFullPath(node, path);
+const iter = (children, path) => {
+  const lines = children.map((node) => {
     switch (node.type) {
       case 'added':
-        return `Property '${currentPath}' was added with value: ${stringify(
-          node.value,
-        )}`;
+        return `Property '${path}${node.key}' was added with value: ${stringify(node.value)}`;
       case 'removed':
-        return `Property '${currentPath}' was removed`;
-      case 'changed':
-        return `Property '${currentPath}' was updated. From ${stringify(
-          node.value1,
-        )} to ${stringify(node.value2)}`;
+        return `Property '${path}${node.key}' was removed`;
       case 'nested':
-        return iter(node.children, currentPath).join('\n');
-      default:
+        return iter(node.children, `${path}${node.key}.`);
+      case 'changed':
+        return `Property '${path}${node.key}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
+      case 'unchanged':
         return null;
+      default:
+        throw new Error(`Unknown type of data ${node.type}`);
     }
   });
+  return lines.filter(Boolean).join('\n');
+};
 
-const plainStylish = (tree) => iter(tree, '').join('\n');
-export default plainStylish;
+const formatPlain = (tree) => iter(tree, '');
+
+export default formatPlain;
