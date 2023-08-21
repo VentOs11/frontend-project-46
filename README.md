@@ -1,5 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/VentOs11/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/VentOs11/frontend-project-46/actions)
+[![Node CI](https://github.com/VentOs11/frontend-project-46/actions/workflows/main.yml/badge.svg)](https://github.com/VentOs11/frontend-project-46/actions/workflows/main.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1f76936c27ec2a2a1796/maintainability)](https://codeclimate.com/github/VentOs11/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/1f76936c27ec2a2a1796/test_coverage)](https://codeclimate.com/github/VentOs11/frontend-project-46/test_coverage)
 
