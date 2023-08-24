@@ -17,20 +17,20 @@ const iter = (children, path) => {
   const lines = children.map((node) => {
     switch (node.type) {
       case 'added':
-        return `Property '${path}${node.key}' was added with value: ${stringify(node.value)}`;
+        return `Property '${path}${node.key}' was added with value: ${stringify(node.value)}\n`;
       case 'removed':
-        return `Property '${path}${node.key}' was removed`;
+        return `Property '${path}${node.key}' was removed\n`;
       case 'nested':
         return iter(node.children, `${path}${node.key}.`);
       case 'changed':
-        return `Property '${path}${node.key}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
+        return `Property '${path}${node.key}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}\n`;
       case 'unchanged':
         return null;
       default:
-        throw new Error(`Unknown type of data ${node.type}`);
+        throw new Error(`Unknown type of data ${node.type}\n`);
     }
   });
-  return lines.filter(Boolean).join('\n');
+  return lines.join('').replace(/\n$/, '');
 };
 
 const formatPlain = (tree) => iter(tree, '');
