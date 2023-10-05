@@ -30,9 +30,9 @@ const iter = (children, path) => {
         throw new Error(`Unknown type of data ${node.type}\n`);
     }
   });
-  return lines.join('').replace(/\n$/, '');
+  return lines.join('');
 };
 
-const formatPlain = (tree) => iter(tree, '');
+const formatPlain = (tree) => iter(tree, '').replace(/\n$/, '');
 
 export default formatPlain;
