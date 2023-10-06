@@ -12,10 +12,10 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 const file1OutputDefault = readFile('file.txt');
 const file1OutputPlain = readFile('file_plain.txt');
 const file1OutputJson = readFile('file_json.txt');
-const file1 = readFile('file1.json');
-const file2 = readFile('file2.json');
-const file3 = readFile('file1.yml');
-const file4 = readFile('file2.yml');
+const file1 = getFixturePath(`file1.${format}`);
+const file2 = getFixturePath(`file2.${format}`);
+const file3 = getFixturePath(`file1.${format}`);
+const file4 = getFixturePath(`file2.${format}`);
 
 describe('comparing  files', () => {
   test('simple using', () => {
