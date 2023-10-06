@@ -6,7 +6,6 @@ export default (data, formatExtension) => {
     yml: YAML.load,
     yaml: YAML.load,
   };
-  
   const format = formats[formatExtension];
   if (!format) {
     throw new Error(`'Unknown format! ${format}'`);

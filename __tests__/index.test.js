@@ -2,6 +2,7 @@ import url from 'url';
 import path, { dirname } from 'node:path';
 import fs from 'fs';
 import genDiff from '../src/index.js';
+import format from '../src/parsers.js';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

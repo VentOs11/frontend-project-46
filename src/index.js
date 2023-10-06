@@ -8,7 +8,6 @@ import formatter from './formatters/index.js';
 const getFullFilePath = (filepath) => resolve(cwd(), filepath);
 
 const getFormat = (filepath) => extname(filepath).substring(1);
-
 const readFile = (filePath) => fs.readFileSync(filePath, 'utf-8');
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
