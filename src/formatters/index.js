@@ -8,7 +8,6 @@ const formatter = (tree, formatName) => {
     json: JSON.stringify,
     error: `The ${formatName} format is supported.\n supported formats: stylish, plain, json`,
   };
-  
   const format = formatters[formatName];
   if (!format) {
     throw new Error(`The ${formatName} format is supported.\n supported formats: stylish, plain, json`);
