@@ -2,7 +2,6 @@ import url from 'url';
 import path, { dirname } from 'node:path';
 import fs from 'fs';
 import genDiff from '../src/index.js';
-import format from '../src/parsers.js';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -13,10 +12,10 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 const file1OutputDefault = readFile('file.txt');
 const file1OutputPlain = readFile('file_plain.txt');
 const file1OutputJson = readFile('file_json.txt');
-const file1 = getFixturePath(`file1.${format}`);
-const file2 = getFixturePath(`file2.${format}`);
-const file3 = getFixturePath(`file1.${format}`);
-const file4 = getFixturePath(`file2.${format}`);
+const file1 = getFixturePath(`file1.json`);
+const file2 = getFixturePath(`file2.json`);
+const file3 = getFixturePath(`file1.yml`);
+const file4 = getFixturePath(`file2.yml`);
 
 describe('comparing  files', () => {
   test('simple using', () => {
