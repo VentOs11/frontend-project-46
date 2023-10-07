@@ -19,8 +19,8 @@ const iter = (tree, depth) => tree.flatMap((node) => {
       return `${ident(depth, false)}+ ${node.key}: ${stringify(node.value, depth)}`;
     }
     case 'changed': {
-      const output1 = `${ident(depth, false)}- ${node.key}: ${stringify(node.value1, depth)}`;
-      const output2 = `${ident(depth, false)}+ ${node.key}: ${stringify(node.value2, depth)}`;
+      const output1 = `${ident(depth, false)}-${node.key}: ${stringify(node.value1, depth)}`;
+      const output2 = `${ident(depth, false)}+${node.key}: ${stringify(node.value2, depth)}`;
       return `${output1}\n${output2}`;
     }
     case 'unchanged': {
