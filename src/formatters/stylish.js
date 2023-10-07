@@ -6,7 +6,7 @@ const stringify = (data, depth) => {
   if (!_.isPlainObject(data)) {
     return String(data);
   }
-  const lines = Object.entries(data).flatMap(([key, value]) => `${ident(depth + 1, true)}${key}:${stringify(value, depth + 1)}`);
+  const lines = Object.entries(data).flatMap(([key, value]) => `${ident(depth + 1, true)}${key}: ${stringify(value, depth + 1)}`);
   return `{\n${lines.join('\n')}\n${ident(depth, true)}}`;
 };
 
