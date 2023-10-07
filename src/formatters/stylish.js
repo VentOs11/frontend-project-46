@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const ident = (depth, isFull) => (isFull ? ' '.repeat(depth * 4) : ''.repeat(depth * 4 - 2));
+const ident = (depth, isFull) => (isFull ? ' '.repeat(depth * 4) : ' '.repeat(depth * 4 - 2));
 
 const stringify = (data, depth) => {
   if (!_.isPlainObject(data)) {
