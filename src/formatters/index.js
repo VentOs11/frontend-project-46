@@ -5,8 +5,7 @@ const formatter = (tree, formatName) => {
   const formatters = {
     stylish: formatStylish,
     plain: plainStylish,
-    json: JSON.stringify,
-    error: `The ${formatName} format is supported.\n supported formats: stylish, plain, json`,
+    json: JSON.stringify(),
   };
   const format = formatters[formatName];
   if (!format) {
