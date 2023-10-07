@@ -3,9 +3,9 @@ import plainStylish from './plain.js';
 
 const formatter = (tree, formatName) => {
   const formatters = {
-    stylish: formatStylish(),
-    plain: plainStylish(),
-    json: JSON.stringify(),
+    stylish: formatStylish,
+    plain: plainStylish,
+    json: JSON.stringify,
   };
   const format = formatters[formatName];
   if (!format) {
