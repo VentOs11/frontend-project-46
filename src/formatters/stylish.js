@@ -13,25 +13,25 @@ const stringify = (data, depth) => {
 const iter = (tree, depth) => tree.flatMap((node) => {
   switch (node.type) {
     case 'removed': {
-      return `${ident(depth, false)}- ${node.key}: ${stringify(node.value, depth)}`;
+      return `${ident(depth, false)}- ${node.key}:${stringify(node.value, depth)}`;
     }
     case 'added': {
-      return `${ident(depth, false)}+ ${node.key}: ${stringify(node.value, depth)}`;
+      return `${ident(depth, false)}+ ${node.key}:${stringify(node.value, depth)}`;
     }
     case 'changed': {
-      const output1 = `${ident(depth, false)}-${node.key}: ${stringify(node.value1, depth)}`;
-      const output2 = `${ident(depth, false)}+${node.key}: ${stringify(node.value2, depth)}`;
+      const output1 = `${ident(depth, false)}- ${node.key}:${stringify(node.value1, depth)}`;
+      const output2 = `${ident(depth, false)}+ ${node.key}:${stringify(node.value2, depth)}`;
       return `${output1}\n${output2}`;
     }
     case 'unchanged': {
-      return `${ident(depth, true)}${node.key}: ${stringify(node.value, depth)}`;
+      return `${ident(depth, true)}${node.key}:${stringify(node.value, depth)}`;
     }
     case 'nested': {
       const output = iter(node.children, depth + 1).join('\n');
-      return `${ident(depth, true)}${node.key}: {\n${output}\n${ident(depth, true)}}`;
+      return `${ident(depth, true)}${node.key}:{\n${output}\n${ident(depth, true)}}`;
     }
     default:
-      throw new Error(`Wrong node type: ${node.type}.`);
+      throw new Error(`Wrong node type:${node.type}.`);
   }
 });
 
