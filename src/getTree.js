@@ -29,7 +29,6 @@ const getTree = (data1, data2) => {
       return {
         key,
         type: 'changed',
-        value1: data1[key],
         value2: data2[key],
       };
     }
