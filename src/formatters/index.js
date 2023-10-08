@@ -12,17 +12,5 @@ const formatter = (tree, formatName) => {
     throw new Error(`The ${formatName} format is supported.\n supported formats: stylish, plain, json`);
   }
   return format(tree);
-  // switch (formatName) {
-  //   case 'stylish':
-  //     return formatStylish(tree);
-  //   case 'plain':
-  //     return plainStylish(tree);
-  //   case 'json':
-  //     return JSON.stringify(tree);
-  //   default:
-  //     throw new Error(
-  //       `The ${formatName} format is supported.\n supported formats: stylish, plain, json`,
-  //     );
-  // }
 };
 export default formatter;
